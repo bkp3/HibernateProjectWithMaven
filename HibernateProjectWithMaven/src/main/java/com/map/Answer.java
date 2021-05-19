@@ -3,6 +3,7 @@ package com.map;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Answer {
@@ -11,6 +12,10 @@ public class Answer {
 	@Column(name="answer_id")
 	private int answerId;
 	private String answer;
+	
+	@ManyToOne
+	private Question question;
+	
 	public Answer() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -32,6 +37,13 @@ public class Answer {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
 	
 	
 

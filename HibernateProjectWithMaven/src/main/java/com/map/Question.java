@@ -1,10 +1,11 @@
 package com.map;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Question {
@@ -14,9 +15,13 @@ public class Question {
 	private int qustionId;
 	private String question;
 	
-	@OneToOne
-	@JoinColumn(name="a_id")
-	private Answer answer;
+//	@OneToOne
+//	@JoinColumn(name="a_id")
+//	private Answer answer;
+	
+	@OneToMany(mappedBy = "question")
+	private List<Answer>answers;
+	
 	
 	
 	public Question() {
@@ -27,7 +32,7 @@ public class Question {
 		super();
 		this.qustionId = qustionId;
 		this.question = question;
-		this.answer = answer;
+		//this.answer = answer;
 	}
 	public int getQustionId() {
 		return qustionId;
@@ -41,14 +46,25 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public Answer getAnswer() {
-		return answer;
+//	public Answer getAnswer() {
+//		return answer;
+//	}
+//	public void setAnswer(Answer answer) {
+//		this.answer = answer;
+//	}
+//	
+	public Question(int qustionId, String question, List<Answer> answers) {
+		super();
+		this.qustionId = qustionId;
+		this.question = question;
+		this.answers = answers;
 	}
-	public void setAnswer(Answer answer) {
-		this.answer = answer;
+	public List<Answer> getAnswers() {
+		return answers;
 	}
-	
-	
-	
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+		
 
 }
