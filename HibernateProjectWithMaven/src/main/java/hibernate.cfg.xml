@@ -19,6 +19,9 @@
 		<mapping class="com.map.Question" />
 		<mapping class="com.map.Answer" />
 		
+		<mapping class="com.mapManyToMany.Emp" />
+		<mapping class="com.mapManyToMany.Project" />
+		
 
 
 	</session-factory>
