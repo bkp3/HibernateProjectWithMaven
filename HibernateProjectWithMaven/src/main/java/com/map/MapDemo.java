@@ -14,34 +14,34 @@ public class MapDemo {
 
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
 
-		// creating question
-		Question q1 = new Question();
-		q1.setQustionId(123);
-		q1.setQuestion("What is Java?");
-
-		// creating answer
-		Answer a1 = new Answer();
-		a1.setAnswerId(321);
-		a1.setAnswer("Java is a programming language.");
-		a1.setQuestion(q1);
-		
-		
-		//creating more answer
-		Answer a3 = new Answer();
-		a3.setAnswerId(322);
-		a3.setAnswer("Java is a object oriented language..");
-		a3.setQuestion(q1);
-		
-		Answer a4 = new Answer();
-		a4.setAnswerId(323);
-		a4.setAnswer("Java is a multithreaded language.");
-		a4.setQuestion(q1);
-		
-		List<Answer> list=new ArrayList<Answer>();
-		list.add(a1);
-		list.add(a3);
-		list.add(a4);
-		q1.setAnswers(list);
+//		// creating question
+//		Question q1 = new Question();
+//		q1.setQustionId(123);
+//		q1.setQuestion("What is Java?");
+//
+//		// creating answer
+//		Answer a1 = new Answer();
+//		a1.setAnswerId(321);
+//		a1.setAnswer("Java is a programming language.");
+//		a1.setQuestion(q1);
+//		
+//		
+//		//creating more answer
+//		Answer a3 = new Answer();
+//		a3.setAnswerId(322);
+//		a3.setAnswer("Java is a object oriented language..");
+//		a3.setQuestion(q1);
+//		
+//		Answer a4 = new Answer();
+//		a4.setAnswerId(323);
+//		a4.setAnswer("Java is a multithreaded language.");
+//		a4.setQuestion(q1);
+//		
+//		List<Answer> list=new ArrayList<Answer>();
+//		list.add(a1);
+//		list.add(a3);
+//		list.add(a4);
+//		q1.setAnswers(list);
 		
 //		q1.setAnswer(a1);
 
@@ -67,10 +67,15 @@ public class MapDemo {
 //		s.save(a1);
 //		s.save(a2);
 
-		s.save(q1);
-		s.save(a1);
-		s.save(a3);
-		s.save(a4);
+//		s.save(q1);
+//		s.save(a1);
+//		s.save(a3);
+//		s.save(a4);
+
+		
+		
+		
+		
 		
 		tx.commit();
 		
@@ -80,11 +85,21 @@ public class MapDemo {
 //		System.out.println(newQ.getAnswer().getAnswer());
 //		
 		Question qF=(Question)s.get(Question.class,123 );
-		System.out.println(qF.getQuestion());
-		for(Answer a:qF.getAnswers()) {
-			System.out.println(a.getAnswer());
-		}
 		
+		System.out.println(qF.getQustionId());
+		System.out.println(qF.getQuestion());
+		
+		System.out.println(qF.getAnswers().size());
+		
+		//lazy
+		//System.out.println(qF.getAnswers().size());
+		
+		
+//		System.out.println(qF.getQuestion());
+//		for(Answer a:qF.getAnswers()) {
+//			System.out.println(a.getAnswer());
+//		}
+//		
 		s.close();
 		factory.close();
 
