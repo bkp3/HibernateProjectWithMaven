@@ -28,6 +28,8 @@
 		<mapping class="com.mapManyToMany.Emp" />
 		<mapping class="com.mapManyToMany.Project" />
 		
+		<mapping resource="com/mapping/xml/Person.hbm.xml"/>
+		
 
 
 	</session-factory>
